@@ -140,7 +140,15 @@ for epoch in range(start_epoch, opt.niter + opt.niter_decay + 1):
         img_fore_wc=img_fore*mask_fore
         all_clothes_label=changearm(data['label'])
         ############## Forward Pass ######################
-        losses, fake_image, real_image,input_label,L1_loss,style_loss,clothes_mask,warped,refined,CE_loss,rx,ry,cx,cy,rg,cg= model(Variable(data['label'].cuda()),Variable(data['edge'].cuda()),Variable(img_fore.cuda()),Variable(mask_clothes.cuda()),Variable(data['color'].cuda()),Variable(all_clothes_label.cuda()),Variable(data['image'].cuda()),Variable(data['pose'].cuda()),Variable(data['mask'].cuda())  )
+        losses, fake_image, real_image,input_label,L1_loss,style_loss,clothes_mask,warped,refined,CE_loss,rx,ry,cx,cy,rg,cg= model(Variable(data['label'].cuda()),
+        Variable(data['edge'].cuda()),
+        Variable(img_fore.cuda()),
+        Variable(mask_clothes.cuda()),
+        Variable(data['color'].cuda()),
+        Variable(all_clothes_label.cuda()),
+        Variable(data['image'].cuda()),
+        Variable(data['pose'].cuda()),
+        Variable(data['mask'].cuda())  )
 
         # sum per device losses
         losses = [ torch.mean(x) if not isinstance(x, int) else x for x in losses ]

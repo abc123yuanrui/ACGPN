@@ -24,7 +24,7 @@ class TrainOptions(BaseOptions):
         self.parser.add_argument('--which_epoch', type=str, default='latest',
                                  help='which epoch to load? set to latest to use latest cached model')
         self.parser.add_argument(
-            '--phase', type=str, default='test', help='train, val, test, etc')
+            '--phase', type=str, default='train-opt', help='train, val, test, etc')
         self.parser.add_argument(
             '--niter', type=int, default=100, help='# of iter at starting learning rate')
         self.parser.add_argument('--niter_decay', type=int, default=100,
