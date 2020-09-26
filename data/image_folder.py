@@ -21,10 +21,10 @@ def make_dataset(dir):
     print(dir, f)
     dirs = os.listdir(dir)
     for img in dirs:
-
         path = os.path.join(dir, img)
         # print(path)
-        images.append(path)
+        if os.path.isfile(path):
+            images.append(path)
     return images
 
 
